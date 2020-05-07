@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 14:52:50 by rarce             #+#    #+#             */
-/*   Updated: 2020/04/27 17:28:41 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 15:25:14 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int counter;
 
-	counter = 0;
-	while (s[counter] != '\0')
-		counter++;
-	while (s[counter] != c && counter >= 0)
+	counter = ft_strlen(s);
+	while (counter >= 0)
+	{
+		if (s[counter] == c)
+			return ((char*)&s[counter]);
 		counter--;
-	return ((char*)&s[counter]);
+	}
+	return (NULL);
 }

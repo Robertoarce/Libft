@@ -6,39 +6,32 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 11:11:36 by rarce             #+#    #+#             */
-/*   Updated: 2020/04/27 17:40:19 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 15:04:12 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lenght(const char *s)
+char	*ft_strnstr(const char *stack, const char *needle, size_t size)
 {
-	int counter;
+	size_t counter;
+	size_t start;
 
 	counter = 0;
-	while (s[counter])
-		counter++;
-	return (counter);
-}
-
-char	*ft_strnstr(const char *stack, const char *needle, int size)
-{
-	int counter;
-	int start;
-
-	counter = 0;
-	if (ft_lenght(needle) == 0 || size == 0)
+	if (needle[0] == '\0')
 		return ((char *)stack);
-	while (stack[counter] != '\0')
+	while (stack[counter] != '\0' && size > counter)
 	{
 		if (stack[counter] == needle[0])
 		{
 			start = 0;
-			while (stack[counter + start] == needle[start] && start < size)
+			while (stack[counter + start] == needle[start]
+					&& counter + start < size)
+			{
 				start++;
-			if (start == size)
-				return ((char *)&stack[counter]);
+				if (needle[start] == '\0')
+					return ((char *)&stack[counter]);
+			}
 		}
 		counter++;
 	}

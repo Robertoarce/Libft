@@ -6,16 +6,18 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 10:32:46 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/05 19:38:56 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 17:01:14 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numsize(int n)
+static unsigned int	ft_numsize(long num)
 {
-	int size;
-
+	unsigned int	size;
+	long			n;
+	
+	n = num;
 	size = 0;
 	if (n < 0)
 	{
@@ -34,17 +36,15 @@ static int	ft_numsize(int n)
 
 char		*ft_itoa(int n)
 {
-	int		counter;
-	int		start;
-	char	*number;
+	unsigned int	counter;
+	unsigned int	start;
+	char			*number;
 
 	counter = ft_numsize(n);
 	number = (char *)malloc(sizeof(char) * counter + 1);
 	if (number == NULL)
 		return (NULL);
 	start = 0;
-	if (n == -2147483648)
-		return ("-2147483648");
 	number[counter + 1] = '\0';
 	if (n < 0)
 	{
@@ -57,5 +57,5 @@ char		*ft_itoa(int n)
 		number[counter] = (n % 10) + 48;
 		n = n / 10;
 	}
-	return (number);
-}
+	return ((char *)number);
+} 

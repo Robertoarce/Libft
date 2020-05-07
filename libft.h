@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 12:54:40 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/07 13:47:13 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 14:26:29 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_strlcpy(char *dst, const char *src, int size);
 size_t  ft_strlcat(char *dst, const char *src, size_t size);
 char    *ft_strchr(const char *s, int c);
 char    *ft_strrchr(const char *s, int c);
-char    *ft_strnstr(const char *stack, const char *needle, int size);
+char    *ft_strnstr(const char *stack, const char *needle, size_t size);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(char *str);
 int     ft_isalpha(int c);
