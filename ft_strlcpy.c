@@ -5,37 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/03 15:28:33 by rarce             #+#    #+#             */
-/*   Updated: 2020/04/27 17:34:04 by rarce            ###   ########.fr       */
+/*   Created: 2020/05/07 13:29:42 by rarce             #+#    #+#             */
+/*   Updated: 2020/05/07 13:53:13 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lenght(char *s)
+static size_t	ft_len(const char *s)
 {
-	int counter;
+	size_t	counter;
 
 	counter = 0;
-	while (s[counter])
+	while (s[counter] != '\0')
+	{
 		counter++;
+	}
 	return (counter);
 }
 
-char	*ft_strlcpy(char *dest, const char *src, int size)
+size_t			ft_strlcpy(char *dst, const char *src, int size)
 {
 	int		counter;
-	int		start;
-	char	*p;
+	size_t	src_len;
 
-	p = dest;
-	start = ft_lenght(dest);
+	if (!dst || !src)
+		return (0);
+	src_len = (ft_len(src));
+	if (size == 0)
+		return (src_len);
 	counter = 0;
-	while (counter < size && src[counter] != '\0' && dest[counter] != '\0')
+	while (counter + 1 < size && src[counter] != '\0')
 	{
-		dest[start + counter] = src[counter];
+		dst[counter] = src[counter];
 		counter++;
 	}
-	dest[start + counter] = '\0';
-	return (p);
+	dst[counter] = '\0';
+	return (src_len);
 }
