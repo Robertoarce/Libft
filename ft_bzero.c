@@ -6,19 +6,19 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 16:48:31 by rarce             #+#    #+#             */
-/*   Updated: 2020/04/27 16:16:16 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 17:18:47 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+void	ft_bzero(void *s, size_t n)
 {
 	char *p;
 
 	p = (char *)s;
 	while (n--)
 	{
-		*p++ = 0;
+		*p++ = '\0';
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 13:29:42 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/07 13:53:13 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 17:24:35 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static size_t	ft_len(const char *s)
 	return (counter);
 }
 
-size_t			ft_strlcpy(char *dst, const char *src, int size)
+size_t			ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int		counter;
+	size_t	counter;
 	size_t	src_len;
 
 	if (!dst || !src)

@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 20:19:10 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/06 18:08:16 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 17:59:16 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 void		ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
+	long num;
+
+	num = n;
+	if (num == -2147483648)
 	{
 		write(fd, "-214748364", 10);
-		n = 8;
+		num = 8;
 	}
-	if (n < 0)
+	if (num < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n = n * -1;
+		num = num * -1;
 	}
-	while (n > 9)
+	while (num > 9)
 	{
-		ft_putnbr_fd(n / 10, 1);
-		n = n % 10;
+		ft_putnbr_fd(num / 10, fd);
+		num = num % 10;
 	}
-	if (n < 10)
-		ft_putchar_fd(n + 48, fd);
+	if (num < 10)
+		ft_putchar_fd(num + 48, fd);
 }

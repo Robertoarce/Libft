@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:47:51 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/06 11:25:14 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/07 17:47:44 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*ptr;
-	size_t			counter;
 
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL || nmemb == 0 || size == 0)
-		return (NULL);
-	counter = 0;
-	while (counter < size)
+	ptr = NULL;
+	if (nmemb != 0 && size != 0)
 	{
-		ptr[counter] = 0;
-		counter++;
+		if ((ptr = malloc(nmemb * (size + 1))) != NULL)
+			ft_bzero(ptr, size);
 	}
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/05/06 19:11:06 by rarce            ###   ########.fr        #
+#    Updated: 2020/05/08 15:17:58 by rarce            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS += ft_memccpy.c
 SRCS += ft_memmove.c
 SRCS += ft_memchr.c
 SRCS += ft_memcmp.c
+SRCS += ft_strlen.c
+
 SRCS += ft_calloc.c
 SRCS += ft_putchar_fd.c
 SRCS += ft_putstr_fd.c
@@ -38,7 +40,7 @@ SRCS += ft_toupper.c
 SRCS += ft_tolower.c
 SRCS += ft_strncmp.c
 SRCS += ft_atoi.c
-SRCS += ft_strlen.c
+
 SRCS += ft_strlcpy.c
 SRCS += ft_strlcat.c
 SRCS += ft_strchr.c
