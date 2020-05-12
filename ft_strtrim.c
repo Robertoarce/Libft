@@ -6,87 +6,69 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/11 08:43:40 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/08 15:55:03 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/12 18:33:56 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-static int		is_in_set(char c, const char *set)
+static int		ft_char_in_set(char const c, char const *set)
 {
-		while (*set)
-				{
-							if (c == *set)
-											return (1);
-									set++;
-										}
-			return (0);
-}
-
-char			*ft_strtrim(char const *s1, char const *set)
-{
-		char	*str;
-			size_t	start;
-				size_t	end;
-					size_t	len;
-
-						start = 0;
-							if (!s1 || !set)
-										return (NULL);
-								while (s1[start] != '\0' && is_in_set(s1[start], set))
-											start++;
-									if ((end = ft_strlen(s1) - 1) > 1)
-											{
-														while (is_in_set(s1[end], set) && end > 1)
-																		end--;
-															}
-										if (start > end)
-													len = start - end + 1;
-											else
-														len = end - start + 1;
-												if (!(str = malloc(sizeof(char) * len + 1)))
-															return (NULL);
-													str = ft_substr((char *)s1, start, len);
-														return (str);
-}
-
-
-/*
-static int		ft_exists(char const *set, char c)
-{
-	int counter;
-
-	counter = 0;
-	while (set[counter] != '\0')
+	while (*set)
 	{
-		if (set[counter] == c)
+		if (c == *set && ft_isascii(c))
 			return (1);
-		counter++;
+		set++;
 	}
 	return (0);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+static size_t	ft_count_letters(char const *s, char const *set)
 {
-	int		counter;
-	int		counter2;
-	char	*ptr;
-	
-	if (!s1 || !set || !(ptr = (char *)malloc(sizeof(char *) * (ft_strlen(s1) + 1))))
-		return (NULL);
+	int	counter;
+	int	letters;
+
+	letters = 0;
 	counter = 0;
-	counter2 = 0;
-	while (s1[counter] != '\0')
+	while (s[counter] != '\0' && ft_char_in_set(s[counter], set))
 	{
-		ptr[counter2] = s1[counter];
-		counter2++;
-		if (ft_exists(set, s1[counter]))
-			counter2--;
 		counter++;
+		letters++;
 	}
-	ptr[counter2] = '\0';
-	return (ptr);
+	if (counter < ft_strlen(s))
+	{
+		counter = ft_strlen(s) - 1;
+		while (counter >= 0 && ft_char_in_set(s[counter], set))
+		{
+			counter--;
+			letters++;
+		}
+	}
+	return (letters);
 }
 
-*/
+char			*ft_strtrim(char const *s1, char const *set)
+{
+	char	*ptr;
+	size_t	counter;
+	size_t	start;
+	size_t	size;
+
+	counter = 0;
+	start = 0;
+	if (!s1 || !set)
+		return (NULL);
+	size = ft_strlen(s1) - ft_count_letters(s1, set);
+	if (!(ptr = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	while (s1[counter] != '\0' && ft_char_in_set(s1[counter], set))
+		counter++;
+	while (start < size)
+	{
+		ptr[start] = s1[counter];
+		start++;
+		counter++;
+	}
+	ptr[start] = '\0';
+	return (ptr);
+}

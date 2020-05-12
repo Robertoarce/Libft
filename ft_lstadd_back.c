@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 18:28:48 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/05 17:19:49 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/12 20:15:46 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (new == NULL)
 		return ;
-	if (lst == NULL)
+	element = *lst;
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	element = *lst;
-	while (element->next != 0)
+	while (element && element->next)
 	{
 		element = element->next;
 	}
