@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 16:48:31 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/07 17:18:47 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 16:19:11 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char *p;
+	unsigned int counter;
 
-	p = (char *)s;
-	while (n--)
+	counter = 0;
+	while (counter < n)
 	{
-		*p++ = '\0';
+		((char *)s)[counter] = 0;
+		counter++;
 	}
 }
