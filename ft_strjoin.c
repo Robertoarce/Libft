@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 15:50:33 by rarce             #+#    #+#             */
-/*   Updated: 2020/04/27 18:28:49 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 17:29:10 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	char	*ptr;
 
-	ptr = (char *)malloc(sizeof(char *) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (ptr == NULL)
+	if (!s1 || !(ptr = (char *)malloc(sizeof(char *)
+					* (ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
 	counter = 0;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:53:25 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/13 16:32:31 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 17:24:10 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	counter = 0;
 	if (n < 0)
 		return (0);
-	while (n  > counter )
+	while (n > counter)
 	{
 		if (a[counter] != b[counter])
 			return ((unsigned char)a[counter] - (unsigned char)b[counter]);

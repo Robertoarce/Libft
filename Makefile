@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/05/08 15:17:58 by rarce            ###   ########.fr        #
+#    Updated: 2020/05/13 17:31:32 by rarce            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,4 +83,3 @@ fclean:	clean
 re:	fclean all
 
 .PHONY:	clean fclean re bonus
-#.SILENT: clean fclean

@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 12:46:53 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/12 19:53:13 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 16:47:34 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		counter++;
 		len--;
 	}
+	ptr[counter] = '\0';
 	return (ptr);
 }

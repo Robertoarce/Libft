@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 14:32:30 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/05 19:39:24 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 17:24:55 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	counter;
 	char			*ptr;
 
-	ptr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (ptr == NULL || s == NULL || *f == NULL)
+	if (!s || !(ptr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
 		return (NULL);
 	counter = 0;
 	while (s[counter] != '\0')

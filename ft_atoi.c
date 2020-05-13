@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/05 12:37:24 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/06 19:08:04 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 17:27:29 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int8_t	ft_ispace(char str)
 
 int				ft_atoi(char *str)
 {
-	int counter;
-	int s;
-	int nb;
+	int			counter;
+	int			s;
+	long int	nb;
 
 	counter = 0;
 	s = 1;
@@ -35,12 +35,14 @@ int				ft_atoi(char *str)
 		s = -1;
 	if (str[counter] == '-' || str[counter] == '+')
 		counter++;
-	if (str[counter] >= '0' && str[counter] <= '9')
-		nb = str[counter++] - 48;
 	while (str[counter] != '\0' && str[counter] >= '0' && str[counter] <= '9')
 	{
+		if (nb > 2147483647 && s == 1)
+			return (-1);
+		if (nb > 2147483648 && s == -1)
+			return (0);
 		nb = (nb * 10) + (str[counter] - 48);
 		counter++;
 	}
-	return (nb * s);
+	return ((int)(nb * s));
 }
