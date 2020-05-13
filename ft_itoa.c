@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 10:32:46 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/07 18:42:41 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 14:33:04 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,21 @@ char			*ft_itoa(int n)
 	num = n;
 	nb_len = ft_numsize(num);
 	number = NULL;
-	if ((number = ft_calloc(sizeof(char), nb_len)) != NULL)
+	if ((number = ft_calloc(sizeof(char), nb_len)) == NULL)
+		return (number);
+	start = 0;
+	number[nb_len + 1] = '\0';
+	number[nb_len] = '\0';
+	if (num < 0)
 	{
-		start = 0;
-		number[nb_len + 1] = '\0';
-		if (num < 0)
-		{
-			number[0] = '-';
-			start++;
-			num = num * -1;
-		}
-		while (nb_len-- > start)
-		{
-			number[nb_len] = (num % 10) + 48;
-			num = num / 10;
-		}
+		number[0] = '-';
+		start++;
+		num = num * -1;
+	}
+	while (nb_len-- > start)
+	{
+		number[nb_len] = (num % 10) + 48;
+		num = num / 10;
 	}
 	return (number);
 }
