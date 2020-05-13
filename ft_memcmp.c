@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/08 15:53:25 by rarce             #+#    #+#             */
-/*   Updated: 2020/05/05 18:51:34 by rarce            ###   ########.fr       */
+/*   Updated: 2020/05/13 11:14:45 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		dif = dif + (unsigned char)a[counter] - (unsigned char)b[counter];
 		counter++;
 	}
-	return (dif);
+	return ((unsigned char)dif);
 }
