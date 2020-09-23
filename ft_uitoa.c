@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
+/*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 10:32:46 by rarce             #+#    #+#             */
-/*   Updated: 2020/08/26 17:41:35 by titorium         ###   ########.fr       */
+/*   Created: 2020/08/11 10:48:12 by titorium          #+#    #+#             */
+/*   Updated: 2020/09/14 19:59:03 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_numsize(long num)
+static size_t	ft_numsized(long num)
 {
 	size_t	size;
 	long	n;
 
 	n = num;
 	size = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		size++;
-	}
 	if (n == 0)
 		size++;
 	while (n != 0)
@@ -34,16 +29,18 @@ static size_t	ft_numsize(long num)
 	return (size);
 }
 
-char			*ft_itoa(int n)
+char			*ft_uitoa(unsigned int *n, int *c)
 {
 	char	*number;
 	size_t	nb_len;
 	size_t	start;
 	long	num;
 
-	num = n;
-	nb_len = ft_numsize(num);
-	number = "0";
+	num = *n;
+	*n = 0;
+	*c = 0;
+	nb_len = ft_numsized(num);
+	number = NULL;
 	if ((number = ft_calloc(sizeof(char), nb_len + 1)) == NULL)
 		return (number);
 	start = 0;

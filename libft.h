@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 12:54:40 by rarce             #+#    #+#             */
-/*   Updated: 2020/07/27 20:37:03 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/14 19:59:21 by rarce            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strncpy(char *dst, char *src, int size);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(char *str);
+int				ft_atoi2(char *str);
+char			*ft_uitoa(unsigned int *n, int *c);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
@@ -64,6 +66,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putstr(char *s);
 void			ft_putstrn(char *s, int size);
 void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
@@ -75,5 +78,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 		void (*del)(void *));
-int				ft_findc(const char *tab, char c);
+
 #endif
