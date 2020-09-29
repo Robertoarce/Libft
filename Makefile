@@ -6,7 +6,7 @@
 #    By: rarce <rarce@42.student.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 15:38:36 by rarce             #+#    #+#              #
-#    Updated: 2020/08/26 15:06:01 by titorium         ###   ########.fr        #
+#    Updated: 2020/09/29 12:12:35 by titorium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS += ft_memchr.c
 SRCS += ft_memcmp.c
 SRCS += ft_strlen.c
 SRCS += ft_strnew.c
+SRCS += ft_intnew.c
 SRCS += ft_strncpy.c
 
 SRCS += ft_calloc.c
@@ -49,6 +50,7 @@ SRCS += ft_isprint.c
 SRCS += ft_toupper.c
 SRCS += ft_tolower.c
 SRCS += ft_strncmp.c
+SRCS += ft_strdif.c
 SRCS += ft_atoi.c
 SRCS += ft_atoi2.c
 
@@ -81,6 +83,7 @@ all:	${NAME}
 
 clean:
 	${RM} ${OBJS}
+	${RM} *.gch
 
 fclean:	clean
 	${RM} ${NAME}
