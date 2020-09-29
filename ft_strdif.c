@@ -6,7 +6,7 @@
 /*   By: titorium <rarce@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 12:09:15 by titorium          #+#    #+#             */
-/*   Updated: 2020/09/29 12:13:09 by titorium         ###   ########.fr       */
+/*   Updated: 2020/09/29 12:27:54 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int	ft_strdif(const char *s1, const char *s2, int n)
 	if (n == 0)
 		return (0);
 	if (n == -1)
-		n = ft_strlen(s1);
+	{
+		n = ft_strlen(s2);
+		if (ft_strlen(s1) > ft_strlen(s2))
+			n = ft_strlen(s1);
+	}
 	while (s1[counter] != '\0' && s2[counter] != '\0'
 			&& s1[counter] == s2[counter]
 			&& counter < n - 1)
