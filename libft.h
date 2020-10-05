@@ -6,7 +6,7 @@
 /*   By: rarce <rarce@42.student.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 12:54:40 by rarce             #+#    #+#             */
-/*   Updated: 2020/09/29 12:14:04 by titorium         ###   ########.fr       */
+/*   Updated: 2020/10/05 13:35:52 by titorium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strnew(int size);
+char			**ft_strnew2(int size);
+char			**ft_append(char **tab, char *ptr);
+void			ft_print2d(char **tab);
+void			ft_strfree(char **tab);
 int				*ft_intnew(int size);
 int				ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
